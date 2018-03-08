@@ -2,13 +2,25 @@
   "name": "react-adaptivecards",
   "version": "0.1.0",
   "description": "A react wrapper for microsoft/adaptive-cards",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib",
+    "clean": "rimraf lib dist coverage",
+    "lint": "eslint src",
+    "prepublish": "npm run build",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatewayapps/react-adaptivecards.git"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ]
   },
   "keywords": [
     "react",
@@ -16,10 +28,40 @@
     "adaptive",
     "cards"
   ],
-  "author": "daniel@gatewayapps.com",
+  "author": "Daniel Gary <daniel@gatewayapps.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gatewayapps/react-adaptivecards/issues"
   },
-  "homepage": "https://github.com/gatewayapps/react-adaptivecards#readme"
+  "homepage": "https://github.com/gatewayapps/react-adaptivecards#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.18.2",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "pre-commit": "^1.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-styleguidist": "^6.2.7",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.11.0",
+    "webpack-blocks": "^1.0.0-rc.2"
+  },
+  "peerDependencies": {
+    "react": "^15.x || ^16.x"
+  },
+  "dependencies": {
+    "adaptivecards": "^1.0.0",
+    "prop-types": "^15.6.1"
+  }
 }

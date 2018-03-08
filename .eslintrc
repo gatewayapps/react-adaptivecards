@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "rules": {
+    "key-spacing": 0,
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
+    "object-curly-spacing": [
+      2,
+      "always"
+    ],
+    "react/prefer-stateless-function": 0,
+    "react/self-closing-comp": 0,
+    "node/no-deprecated-api": 1,
+    "node/no-missing-import": 2,
+    "node/no-missing-require": 2
+  },
+  "plugins": [
+    "babel",
+    "react",
+    "promise",
+    "node"
+  ],
+  "env": {
+    "browser": true
+  }
+}
