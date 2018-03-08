@@ -21,6 +21,8 @@ export default class AdaptiveCard extends React.Component {
     onActionOpenUrl: PropTypes.func,
     /** Method that will be invoked when a Show Card action is executed. [More Info](https://docs.microsoft.com/en-us/adaptive-cards/display/implementingrenderer#actionshowcard) */
     onActionShowCard: PropTypes.func,
+    /** Method that will be invoked if an error is thrown while trying to render a card. */
+    onError: PropTypes.func,
     /** JSX styles that will be applied to the card conatiner */
     style: PropTypes.object
   }
@@ -48,32 +50,32 @@ export default class AdaptiveCard extends React.Component {
     return false
   }
 
-  executeAction (a){
+  executeAction (a) {
     const type = a.getJsonTypeName()
-    switch(type){
-      case ACTION_OPEN_URL:{
-        if(this.props.onActionOpenUrl) {
+    switch (type) {
+      case ACTION_OPEN_URL: {
+        if (this.props.onActionOpenUrl) {
           this.props.onActionOpenUrl(a)
         } else {
           this.defaultOpenUrlHandler(a)
         }
-        
+
         break
       }
-      case ACTION_SHOW_CARD:{
-        if(this.props.onActionShowCard){
+      case ACTION_SHOW_CARD: {
+        if (this.props.onActionShowCard) {
           this.props.onActionShowCard(a)
         }
         break
       }
-      case ACTION_SUBMIT:{
-        if(this.props.onActionSubmit){
+      case ACTION_SUBMIT: {
+        if (this.props.onActionSubmit) {
           this.props.onActionSubmit(a)
         }
         break
       }
     }
-    if(this.props.onExecuteAction){
+    if (this.props.onExecuteAction) {
       this.props.onExecuteAction(a)
     }
   }
@@ -91,15 +93,14 @@ export default class AdaptiveCard extends React.Component {
     try {
       this.adaptiveCard.parse(this.props.payload)
       const result = this.adaptiveCard.render()
-      return <div style={this.props.style} ref={(n)=> {n && n.appendChild(result)}} />
+      return <div style={this.props.style} ref={(n) => { n && n.appendChild(result) }} />
     } catch (err) {
       console.error(err)
-      if(this.props.onError){
+      if (this.props.onError) {
         return this.props.onError(err)
       } else {
-        return <div style={{color: 'red'}}>{err.message}</div>
+        return <div style={{ color: 'red' }}>{err.message}</div>
       }
-      
     }
   }
 }
