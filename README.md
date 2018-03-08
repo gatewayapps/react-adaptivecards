@@ -1,6 +1,7 @@
 # react-adaptivecards
 A react wrapper for microsoft/adaptivecards
-![Adaptive Cards](https://gatewayapps.github.io/react-adaptivecards/images/sample.png "Adaptive Cards")
+
+![](https://gatewayapps.github.io/react-adaptivecards/images/sample.png "Adaptive Cards")
 
 
 ### Installation
