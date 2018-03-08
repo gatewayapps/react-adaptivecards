@@ -5,5 +5,6 @@ module.exports = {
   webpackConfig: require('./webpack.config.js'),
   styleguideComponents: {
     AdaptiveCard: './src'
-  }
+  },
+  styleguideDir: './docs'
 }
