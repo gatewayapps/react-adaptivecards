@@ -1,5 +1,5 @@
 # react-adaptivecards
-A react wrapper for microsoft/adaptivecards
+A react wrapper for [microsoft/adaptivecards](https://adaptivecards.io)
 
 ![](https://gatewayapps.github.io/react-adaptivecards/images/sample.png "Adaptive Cards")
 
