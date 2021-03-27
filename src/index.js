@@ -93,7 +93,7 @@ export default class AdaptiveCard extends React.Component {
     try {
       this.adaptiveCard.parse(this.props.payload)
       const result = this.adaptiveCard.render()
-      return <div style={this.props.style} ref={(n) => { n && n.appendChild(result) }} />
+      return <div style={this.props.style} ref={(n) => { n && n.replaceWith(result) }} />
     } catch (err) {
       console.error(err)
       if (this.props.onError) {
